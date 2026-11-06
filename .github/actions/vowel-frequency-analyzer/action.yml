@@ -9,6 +9,6 @@ inputs:
 
 runs:
   using: docker
-  image: Dockerfile
+  image: docker://ghcr.io/ciararegan8/vowel-frequency-analyzer:latest
   env:
     FILE: ${{ inputs.file }}
