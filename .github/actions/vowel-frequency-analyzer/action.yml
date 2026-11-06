@@ -1,0 +1,14 @@
+name: Vowel Frequency Analyzer
+description: Analyses vowel frequencies in a text file and updates README.md
+
+inputs:
+  file:
+    description: Path to the text file to analyse
+    required: true
+    default: data.txt
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    FILE: ${{ inputs.file }}
