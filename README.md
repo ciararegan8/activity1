@@ -14,3 +14,15 @@ a: 1, e: 0, i: 4, o: 1, u: 0
 
 Contributor: ciararegan8
 Timestamp: Fri  6 Nov 2026 16:06:23 AEDT
+
+## Vowel Frequency Analysis
+
+Vowel Frequencies:
+a: 1
+e: 0
+i: 4
+o: 1
+u: 0
+
+Contributor: ciararegan8
+Timestamp: Fri  6 Nov 2026 16:10:44 AEDT
