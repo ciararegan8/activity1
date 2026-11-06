@@ -7,22 +7,23 @@ on:
 
 permissions:
   contents: write
+  packages: read
 
 jobs:
   build:
+    if: github.actor != 'github-actions[bot]'
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
-      - name: Build Docker image
-        run: docker build -t vowel-frequency-analyzer:latest .
-
-      - name: Run Docker container
-        run: |
-          docker run --rm \
-            -e GITHUB_USER="${{ github.actor }}" \
-            -e FILE="data.txt" \
-            -v "${{ github.workspace }}:/app" \
-            vowel-frequency-analyzer:latest
+      - name: Run Vowel Frequency Analyzer
+        uses: ./.github/actions/vowel-frequency-analyzer
+        with:
+          file: data.txt
+        env:
+          GITHUB_USER: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
